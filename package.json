@@ -1,0 +1,22 @@
+{
+  "name": "microverse_tic_tac_toe_js",
+  "version": "1.0.0",
+  "description": "microverse_tic_tac_toe_js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoyNyaga/microverse_tic_tac_toe_js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoyNyaga/microverse_tic_tac_toe_js/issues"
+  },
+  "homepage": "https://github.com/RoyNyaga/microverse_tic_tac_toe_js#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
+}
