@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid" id="over-all-wrapper">
+      <div class="jumbotron">
+        <h1 class="display-3">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="m-y-md">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+
+      <div class="row text-white" id="boards-wrapper">
+        <div class="col-md-6 col-10 d-flex flex-column mx-auto">
+          <div class="boards mb-5" id="information-board">
+            <h2 class="info"></h2>
+            <div id="button-div">
+              <div class="d-flex justify-content-between">
+                <button type="button" id="playerOneButton" class="btn btn-dark player-buttons">Player one</button>
+                <button type="button" id="playerTwoButton" class="btn btn-info player-buttons">Player Two</button>
+              </div>           
+            </div>
+          </div>
+
+          <div class="toggle-form" id="form-div">
+            <form class="form-inline mb-5 bg-danger">
+              <div class="form-group bg-danger">
+                <input type="text" class="form-control" name="exampleInputName2" id="name-input-field" placeholder="Enter Your Name">
+              </div>
+              <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+            </form>
+          </div>
+
+          <div class="boards">
+            <div class="game-rows border-b d-flex ">
+              <div class="col border-r">x</div>
+              <div class="col border-r">x</div>
+              <div class="col">x</div>       
+            </div>
+            <div class="game-rows border-b d-flex">
+              <div class="col border-r">x</div>
+              <div class="col border-r">x</div>
+              <div class="col">x</div>       
+            </div>
+            <div class="game-rows d-flex">
+              <div class="col border-r">x</div>
+              <div class="col border-r">x</div>
+              <div class="col">x</div>       
+            </div>
+          </div>      
+        </div>
+      </div>
+
+    </div>
+
+    
+  	
+    
+    <script src="script.js"></script>
+  </body>
+</html>
