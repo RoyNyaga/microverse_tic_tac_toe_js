@@ -11,20 +11,21 @@ const Tools = (() => {
         element.innerText = "-";           
       })
   }
-  const  playerName = (e) => {    
-  	var buttonIdValue = e.target.attributes.id.value;	
-  	if(buttonIdValue === "save-button-player-one"){
-  		var nameValue = document.querySelector("#name-input-field-player-one").value;
-      displayGeneralInfo(`Initializing ${nameValue}'s data.......`);
-      instructions("Player two click button bellow to enter your name");
-      nameStorage.push(nameValue) ;
-  	}else{
-  		var nameValue = document.querySelector("#name-input-field-player-two").value;
-  		displayGeneralInfo(`Initializing ${nameValue}'s data......`);
-  		toggleDisplay(startButton);
-  		instructions("CLICK START BUTTON TO START GAME")
-      nameStorage.push(nameValue)
-    }   
+  const  playerName = () => {    
+  	// if(buttonIdValue === "save-button-player-one"){
+      nameStorage.push(document.querySelector("#playerOneName").value);
+      console.log(nameStorage);
+      // displayGeneralInfo(`Initializing ${nameValue}'s data.......`);
+      // instructions("Player two click button bellow to enter your name");
+      // nameStorage.push(nameValue) ;
+  	// }else{
+      nameStorage.push(document.querySelector("#playerTwoName").value);
+      console.log(nameStorage);
+  		// displayGeneralInfo(`Initializing ${nameValue}'s data......`);
+  		// toggleDisplay(startButton);
+  		// instructions("CLICK START BUTTON TO START GAME")
+      // nameStorage.push(nameValue)
+    // }   
   }
   const displayGeneralInfo = (info) => {
     let displayDiv = document.querySelector("#main-info");
@@ -53,6 +54,7 @@ const Tools = (() => {
 })();
 
 const TicTacToeGame = () => {
+  Tools.playerName();
   const board = Board();
   let turn = 0;
 
