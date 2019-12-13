@@ -58,3 +58,38 @@ const Tools = (() => {
   };
   return{ toggleDisplay, playerName, displayGeneralInfo, instructions, resetBoard, isStart, effectTurn };
 })();
+
+const TicTacToeGame = () => {
+  const board = Board();
+  let turn = 0;
+
+  const start = (event) => {
+
+  turn = 0;
+  var idValue = event.target.attributes.id.value;
+  console.log(idValue); 
+  Tools.resetBaord(board);
+
+  if(Tools.isStart(idValue)){
+    Tools.toggleDisplay(gameBoard);
+    Tools.toggleDisplay(startButton);
+  };
+   
+  const playerOne = player(board, nameStorage[0], "X");
+  const playerTwo = player(board, nameStorage[1], "O");
+
+  console.log(playerOne.name, playerOne.mark),
+  console.log(playerTwo.name, playerTwo.mark),
+    
+  board.positions.forEach((element) => {
+    element.addEventListener("click", (event) =>{
+      takeTurn(playerOne, playerTwo, element);
+        event.stopImmediatePropagation();       
+    })
+  })  
+  }
+
+
+  return { start, initialize }
+
+}
