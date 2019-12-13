@@ -9,62 +9,47 @@
   </head>
   <body>
     <div class="container-fluid" id="over-all-wrapper">
-      <div class="jumbotron">
-        <h1 class="display-3">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="m-y-md">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-      </div>
-
       <div class="row text-white" id="boards-wrapper">
         <div class="col-md-6 col-10 d-flex flex-column mx-auto">
           <div class="boards mb-5" id="information-board">
-            <h2 class="info"></h2>
+
+            <div id="General-info" class="text-center">
+              <h1 id="main-info">General info</h1>
+              <h4 id="side-info" class="text-danger">Both players can enter their names in the fields below then click the start button to begin the game</h4>
+            </div>
+
             <div id="button-div">
-              <div class="d-flex justify-content-between">
-                <button type="button" id="playerOneButton" class="btn btn-dark player-buttons">Player one</button>
-                <button type="button" id="playerTwoButton" class="btn btn-info player-buttons">Player Two</button>
+              <div class="text-center d-flex justify-content-between">
+                <div class="player-info toggle-form">Player One</div>
+                <input type="name" id="playerOneName" class="btn btn-dark player-buttons" placeholder="PlayerOne">
+                <button type="button" id="start-button" class="btn btn-info player-buttons">Start Game</button>
+                <input type="name" id="playerTwoName" class="btn btn-dark player-buttons" placeholder="PlayerTwo">
+                <div class="player-info toggle-form">Player Two</div>
               </div>           
             </div>
           </div>
 
-          <div class="toggle-form" id="form-div">
-            <form class="form-inline mb-5 bg-danger">
-              <div class="form-group bg-danger">
-                <input type="text" class="form-control" name="exampleInputName2" id="name-input-field" placeholder="Enter Your Name">
-              </div>
-              <button type="submit" class="btn btn-primary" id="save-button">Save</button>
-            </form>
-          </div>
-
-          <div class="boards">
+          <div id ="game-board" class="boards">
             <div class="game-rows border-b d-flex ">
-              <div class="col border-r">x</div>
-              <div class="col border-r">x</div>
-              <div class="col">x</div>       
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
             </div>
             <div class="game-rows border-b d-flex">
-              <div class="col border-r">x</div>
-              <div class="col border-r">x</div>
-              <div class="col">x</div>       
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
             </div>
             <div class="game-rows d-flex">
-              <div class="col border-r">x</div>
-              <div class="col border-r">x</div>
-              <div class="col">x</div>       
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
             </div>
           </div>      
         </div>
       </div>
-
     </div>
-
-    
-  	
-    
+  </div>    
     <script src="script.js"></script>
   </body>
 </html>
