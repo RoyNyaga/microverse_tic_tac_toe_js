@@ -169,3 +169,25 @@ const Board = () => {
   }
   return { positions, checkForWinner, declareWinner, isDraw }
 }
+
+const player = (board, name, mark) => {
+
+  const takeTurn = (element, turn) => {
+    if(element.innerHTML === "O" || element.innerHTML === "X"){
+      alert("position has already been taken");      
+    }else{
+      turn ++;
+      console.log(turn)
+      element.innerText = mark;
+    }
+    return turn;
+  }
+
+  return { name, board, mark, takeTurn };
+};
+
+
+
+Tools.toggleDisplay(playerOneButton);
+let game = TicTacToeGame();
+game.initialize();
