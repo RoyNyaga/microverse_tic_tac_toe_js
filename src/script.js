@@ -89,6 +89,32 @@ const TicTacToeGame = () => {
   })  
   }
 
+  const initialize = () => {
+
+    playerOneButton.addEventListener("click", (e) => {
+      Tools.toggleDisplay(formTogglePlayerOne);
+      Tools.instructions("Player One click button bellow to enter your information")
+    });
+
+    playerTwoButton.addEventListener("click", (e) => {
+      Tools.toggleDisplay(formTogglePlayerTwo);
+    });
+
+  }
+
+  function takeTurn(playerOne, playerTwo, element){
+    console.log(turn);
+
+    if(board.checkForWinner() || board.isDraw(turn, board)){
+      return
+    }
+    turn = Tools.effectTurn(turn, playerOne, playerTwo, element);
+   
+    console.log(turn)
+    board.declareWinner(turn, board, playerOne, playerTwo);
+    board.isDraw(turn, board);
+  }
+
 
   return { start, initialize }
 
