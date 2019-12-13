@@ -1,13 +1,11 @@
-let playerOneButton = document.querySelector("#playerOneButton");
-let playerTwoButton = document.querySelector("#playerTwoButton");
-let formTogglePlayerOne = document.querySelector("#form-div-playerOne");
-let formTogglePlayerTwo = document.querySelector("#form-div-playerTwo");
 let startButton = document.querySelector("#start-button");
 let gameBoard = document.querySelector("#game-board");
 const nameStorage = [];
 
 const Tools = (() => {
+
   const  toggleDisplay = form => form.classList.toggle("toggle-form");
+
   const resetBoard = (board) => {
     board.positions.forEach((element) => {
         element.innerText = "-";           
@@ -17,19 +15,14 @@ const Tools = (() => {
   	var buttonIdValue = e.target.attributes.id.value;	
   	if(buttonIdValue === "save-button-player-one"){
   		var nameValue = document.querySelector("#name-input-field-player-one").value;
-      toggleDisplay(formTogglePlayerOne);
       displayGeneralInfo(`Initializing ${nameValue}'s data.......`);
       instructions("Player two click button bellow to enter your name");
-      toggleDisplay(playerOneButton);
-      toggleDisplay(playerTwoButton);
       nameStorage.push(nameValue) ;
   	}else{
   		var nameValue = document.querySelector("#name-input-field-player-two").value;
-  		toggleDisplay(formTogglePlayerTwo);
   		displayGeneralInfo(`Initializing ${nameValue}'s data......`);
   		toggleDisplay(startButton);
   		instructions("CLICK START BUTTON TO START GAME")
-  		toggleDisplay(playerTwoButton);
       nameStorage.push(nameValue)
     }   
   }
@@ -91,14 +84,13 @@ const TicTacToeGame = () => {
 
   const initialize = () => {
 
-    playerOneButton.addEventListener("click", (e) => {
-      Tools.toggleDisplay(formTogglePlayerOne);
-      Tools.instructions("Player One click button bellow to enter your information")
-    });
+    // playerOneButton.addEventListener("click", (e) => {
+    //   Tools.instructions("Player One click button bellow to enter your information")
+    // });
 
-    playerTwoButton.addEventListener("click", (e) => {
-      Tools.toggleDisplay(formTogglePlayerTwo);
-    });
+    // playerTwoButton.addEventListener("click", (e) => {
+    //   Tools.toggleDisplay(formTogglePlayerTwo);
+    // });
 
   }
 
@@ -188,6 +180,5 @@ const player = (board, name, mark) => {
 
 
 
-Tools.toggleDisplay(playerOneButton);
 let game = TicTacToeGame();
-game.initialize();
+// game.initialize();
