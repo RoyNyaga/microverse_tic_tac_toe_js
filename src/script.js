@@ -37,8 +37,24 @@ const Tools = (() => {
     let displayDiv = document.querySelector("#main-info");
     displayDiv.innerHTML = info
   }
-  
-  
-  
-  return{ };
+  const instructions = (info) => {
+  	let sideInfoDiv = document.querySelector("#side-info");
+  	sideInfoDiv.innerHTML = info;
+  }
+  const isStart = (value) => {
+    if(value === "start-button"){
+      return true;
+    }else{
+      return false;
+    }
+  };
+  const effectTurn = (turn, playerOne, playerTwo, element) => {
+     if(turn % 2 === 0){
+      turn = playerOne.takeTurn(element, turn);
+     } else {
+      turn = playerTwo.takeTurn(element, turn);
+     };
+     return turn;
+  };
+  return{ toggleDisplay, playerName, displayGeneralInfo, instructions, resetBoard, isStart, effectTurn };
 })();
