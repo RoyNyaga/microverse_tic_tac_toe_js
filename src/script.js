@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[game,gameBoard,startButton]" }] */
 let startButton = document.querySelector("#start-button");
 let gameBoard = document.querySelector("#game-board");
 const nameStorage = [];
@@ -12,28 +13,18 @@ const Tools = (() => {
       })
   }
   const  playerName = () => {    
-  	// if(buttonIdValue === "save-button-player-one"){
       nameStorage.push(document.querySelector("#playerOneName").value);
       console.log(nameStorage);
-      // displayGeneralInfo(`Initializing ${nameValue}'s data.......`);
-      // instructions("Player two click button bellow to enter your name");
-      // nameStorage.push(nameValue) ;
-  	// }else{
       nameStorage.push(document.querySelector("#playerTwoName").value);
-      console.log(nameStorage);
-  		// displayGeneralInfo(`Initializing ${nameValue}'s data......`);
-  		// toggleDisplay(startButton);
-  		// instructions("CLICK START BUTTON TO START GAME")
-      // nameStorage.push(nameValue)
-    // }   
+      console.log(nameStorage);  
   }
   const displayGeneralInfo = (info) => {
     let displayDiv = document.querySelector("#main-info");
     displayDiv.innerHTML = info
   }
   const instructions = (info) => {
-  	let sideInfoDiv = document.querySelector("#side-info");
-  	sideInfoDiv.innerHTML = info;
+    let sideInfoDiv = document.querySelector("#side-info");
+    sideInfoDiv.innerHTML = info;
   }
   const isStart = (value) => {
     if(value === "start-button"){
@@ -47,10 +38,13 @@ const Tools = (() => {
       turn = playerOne.takeTurn(element, turn);
      } else {
       turn = playerTwo.takeTurn(element, turn);
-     };
+     }
      return turn;
   };
-  return{ toggleDisplay, playerName, displayGeneralInfo, instructions, resetBoard, isStart, effectTurn };
+  const switchStartButton = () => {
+    document.querySelector("#start-button").firstChild.data = "Reset";
+  };
+  return{ toggleDisplay, playerName, displayGeneralInfo, instructions, resetBoard, isStart, effectTurn ,switchStartButton};
 })();
 
 const TicTacToeGame = () => {
@@ -64,11 +58,8 @@ const TicTacToeGame = () => {
   var idValue = event.target.attributes.id.value;
   console.log(idValue); 
   Tools.resetBoard(board);
-
-  if(Tools.isStart(idValue)){
-    Tools.toggleDisplay(gameBoard);
-    Tools.toggleDisplay(startButton);
-  };
+  Tools.switchStartButton();
+  Tools.displayGeneralInfo("Tic-Tac-Toe");
    
   const playerOne = player(board, nameStorage[0], "X");
   const playerTwo = player(board, nameStorage[1], "O");
@@ -82,18 +73,6 @@ const TicTacToeGame = () => {
         event.stopImmediatePropagation();       
     })
   })  
-  }
-
-  const initialize = () => {
-
-    // playerOneButton.addEventListener("click", (e) => {
-    //   Tools.instructions("Player One click button bellow to enter your information")
-    // });
-
-    // playerTwoButton.addEventListener("click", (e) => {
-    //   Tools.toggleDisplay(formTogglePlayerTwo);
-    // });
-
   }
 
   function takeTurn(playerOne, playerTwo, element){
@@ -110,7 +89,7 @@ const TicTacToeGame = () => {
   }
 
 
-  return { start, initialize }
+  return { start }
 
 }
 
@@ -122,8 +101,8 @@ const Board = () => {
         Tools.displayGeneralInfo(`AND THE WINNER IS ${playerOne.name}!!!!!!`);
       }else{
         Tools.displayGeneralInfo(`AND THE WINNER IS ${playerTwo.name}!!!!!!`);
-      };
-    };
+      }
+    }
   };
   const isDraw = (turn, board) => {
     if(turn === 9 && board.checkForWinner() === false){
@@ -131,7 +110,7 @@ const Board = () => {
       return true;
     }else{
       return false;
-    };
+    }
   };
   let checkForWinner = function(){
     let winner = false;
@@ -183,4 +162,3 @@ const player = (board, name, mark) => {
 
 
 let game = TicTacToeGame();
-// game.initialize();
