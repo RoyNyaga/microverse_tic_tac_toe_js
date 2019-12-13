@@ -119,3 +119,20 @@ const TicTacToeGame = () => {
   return { start, initialize }
 
 }
+
+const Board = () => {
+  let positions = Array.from(document.querySelectorAll(".col"));
+  const declareWinner = (turn, board, playerOne, playerTwo) => {
+    if(board.checkForWinner()){
+      if(turn % 2 === 0){
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${playerOne.name}!!!!!!`);
+      }else{
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${playerTwo.name}!!!!!!`);
+      };
+    };
+  };
+ 
+  
+  }
+  return { positions, checkForWinner, declareWinner, isDraw }
+}
