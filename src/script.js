@@ -98,17 +98,20 @@ const TicTacToeGame = () => {
 const Board = () => {
   const positions = Array.from(document.querySelectorAll('.col'));
   const declareWinner = (turn, board) => {
+    const winner1 = nameStorage[0] ? nameStorage[0] : 'player One';
+    const winner2 = nameStorage[1] ? nameStorage[1] : 'player Two';
+
     if (board.checkForWinner()) {
       if (turn % 2 === 0) {
-        Tools.displayGeneralInfo(`AND THE WINNER IS ${nameStorage[0].toUpperCase()}!`);
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${winner2.toUpperCase()}!`);
       } else {
-        Tools.displayGeneralInfo(`AND THE WINNER IS ${nameStorage[1].toUpperCase()}!`);
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${winner1.toUpperCase()}!`);
       }
     }
   };
   const isDraw = (turn, board) => {
     if (turn === 9 && board.checkForWinner() === false) {
-      Tools.displayGeneralInfo("It's a Draw, click the restart button for Another round");
+      Tools.displayGeneralInfo("It's a draw! Click the restart button for another round");
       return true;
     }
     return false;
