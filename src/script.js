@@ -3,7 +3,7 @@ no-use-before-define, no-shadow, func-names */
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[game,gameBoard,startButton]" }] */
 const startButton = document.querySelector('#start-button');
 const gameBoard = document.querySelector('#game-board');
-let nameStorage = [];
+const nameStorage = [];
 
 const Tools = (() => {
   const toggleDisplay = (form) => form.classList.toggle('toggle-form');
@@ -14,11 +14,9 @@ const Tools = (() => {
     });
   };
   const playerName = (nameStorage) => {
-    nameStorage.pop();
-    nameStorage.pop();
+    nameStorage.length = 0;
     nameStorage.push(document.querySelector('#playerOneName').value);
     nameStorage.push(document.querySelector('#playerTwoName').value);
-
   };
   const displayGeneralInfo = (info) => {
     const displayDiv = document.querySelector('#main-info');
@@ -58,12 +56,10 @@ const Tools = (() => {
 })();
 
 const TicTacToeGame = () => {
-  
   const board = Board();
   let turn = 0;
 
   const start = (event) => {
-    
     turn = 0;
     const idValue = event.target.attributes.id.value;
     Tools.resetBoard(board);
@@ -71,10 +67,9 @@ const TicTacToeGame = () => {
     Tools.displayGeneralInfo('Tic-Tac-Toe');
 
     Tools.playerName(nameStorage);
-    let playerOne = player(board, nameStorage[0], 'X');
-    let playerTwo = player(board, nameStorage[1], 'O');
-    console.log(playerOne.name, playerTwo.name);
-    
+    const playerOne = player(board, nameStorage[0], 'X');
+    const playerTwo = player(board, nameStorage[1], 'O');
+
 
     board.positions.forEach((element) => {
       element.addEventListener('click', (event) => {
@@ -102,12 +97,12 @@ const TicTacToeGame = () => {
 
 const Board = () => {
   const positions = Array.from(document.querySelectorAll('.col'));
-  const declareWinner = (turn, board, playerOne, playerTwo) => {
+  const declareWinner = (turn, board) => {
     if (board.checkForWinner()) {
       if (turn % 2 === 0) {
-        Tools.displayGeneralInfo(`AND THE WINNER IS ${playerOne.name}!!!!!!`);
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${nameStorage[0].toUpperCase()}!`);
       } else {
-        Tools.displayGeneralInfo(`AND THE WINNER IS ${playerTwo.name}!!!!!!`);
+        Tools.displayGeneralInfo(`AND THE WINNER IS ${nameStorage[1].toUpperCase()}!`);
       }
     }
   };
