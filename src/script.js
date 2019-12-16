@@ -6,7 +6,7 @@ const gameBoard = document.querySelector('#game-board');
 const nameStorage = [];
 
 const Tools = (() => {
-  const toggleDisplay = (form) => form.classList.toggle('toggle-form');
+  const toggleDisplay = (form) => { form.classList.toggle('toggle-form'); };
 
   const resetBoard = (board) => {
     board.positions.forEach((element) => {
