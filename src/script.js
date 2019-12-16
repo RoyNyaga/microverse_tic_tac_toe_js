@@ -1,3 +1,4 @@
+/* eslint-disable no-alert, no-param-reassign, no-use-before-define */
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[game,gameBoard,startButton]" }] */
 let startButton = document.querySelector("#start-button");
 let gameBoard = document.querySelector("#game-board");
@@ -165,7 +166,7 @@ const player = (board, name, mark) => {
         if (element.innerHTML === "O" || element.innerHTML === "X") {
             alert("position has already been taken");
         } else {
-            turn++;
+            turn += 1;
             console.log(turn)
             element.innerText = mark;
         }
