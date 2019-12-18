@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid" id="over-all-wrapper">
+      <div class="row text-white" id="boards-wrapper">
+        <div class="col-md-6 col-10 d-flex flex-column mx-auto">
+          <div class="boards mb-5" id="information-board">
+
+            <div id="General-info" class="text-center">
+              <h1 id="main-info">Tic-Tac-Toe</h1>
+              <h4 id="side-info" class="text-danger">Both players can enter their names in the fields below then click the start button to begin the game</h4>
+            </div>
+
+            <div id="button-div">
+              <div class="text-center d-flex justify-content-between">
+                <div class="player-info toggle-form">Player One</div>
+                <input type="name" id="playerOneName" class="btn btn-dark player-buttons" placeholder="PlayerOne">
+                <button onclick="game.start(event)" type="button" id="start-button" class="btn btn-info player-buttons">Start Game</button>
+                <input type="name" id="playerTwoName" class="btn btn-dark player-buttons" placeholder="PlayerTwo">
+                <div class="player-info toggle-form">Player Two</div>
+              </div>           
+            </div>
+          </div>
+
+          <div id ="game-board" class="boards">
+            <div class="game-rows border-b d-flex ">
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
+            </div>
+            <div class="game-rows border-b d-flex">
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
+            </div>
+            <div class="game-rows d-flex">
+              <div class="col border-r">-</div>
+              <div class="col border-r">-</div>
+              <div class="col">-</div>       
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>    
+    <script src="script.js"></script>
+  </body>
+</html>

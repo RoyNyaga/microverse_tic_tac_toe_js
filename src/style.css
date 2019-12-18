@@ -1,0 +1,54 @@
+#over-all-wrapper {
+	background: #6610f2;
+}
+
+.border-b { 
+	border-bottom: 10px solid #ffd540;
+}
+
+.border-r {
+	border-right: 10px solid #ffd540;
+}
+
+.col {
+	height: 100px;
+	width: 100px;
+	font-size: 100px;
+	text-align: center;
+	line-height: 100px;
+}
+
+.col:hover {
+	background: #454754;
+}
+
+#information-board {
+	height: 400px;
+	position: relative;
+	
+}
+
+#button-div {
+	position: absolute;
+	top: 80%;
+	width: 100%;
+}
+
+.boards {
+	border: 5px solid #ffd540;
+	background: #422b6b;
+	box-shadow: 5px 10px 10px black;
+	margin-bottom: 50px;
+}
+
+.toggle-form {
+	display: none;
+}
+
+.form-group {
+	width: 70%;
+}
+
+#name-input-field {
+	width: 100%;
+}
